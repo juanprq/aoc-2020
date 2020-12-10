@@ -12,9 +12,9 @@ const loadInputString = (dirPath) => {
   }
 }
 
-const loadInput = (dirPath) => {
+const loadInput = (dirPath, separator = '\n') => {
   const result = loadInputString(dirPath);
-  return result.split('\n').filter(a => a.length > 0);
+  return result.split(separator).filter(a => a.length > 0);
 };
 
 
