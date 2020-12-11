@@ -30,6 +30,6 @@ const isValid = (current) => {
 for (let i = offset; i < input.length; i++) {
   if (!isValid(i)) {
     console.log('invalid ->');
-    console.log(input[i]);
+    console.log({ i, value: input[i] });
   }
 }
