@@ -7,7 +7,7 @@ const input = loadInput(__dirname)[0]
 const memo = input.slice(0, input.length - 1).reduce((accum, number, idx) => {
   accum[number] = idx + 1;
   return accum;
-}, {});
+}, new Array(30e6));
 
 let start = new Date();
 let lastNumber = input[input.length -1];
