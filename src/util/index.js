@@ -28,7 +28,7 @@ const print2DMatrix = (matrix) => {
 
 const print3DMatrix = (matrix, offset = 0) => {
   for (let i = 0; i < matrix.length; i++) {
-    console.log(`----- z = ${i + offset}`);
+    console.log(`----- z = ${i - offset}`);
     print2DMatrix(matrix[i]);
   }
 };
