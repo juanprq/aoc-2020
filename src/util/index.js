@@ -58,6 +58,15 @@ const initialize3DMatrix = (depth, rows, cols, initialValue = 0) => {
   return matrix;
 };
 
+const initialize4DMatrix = (hyper, depth, rows, cols, initialValue = 0) => {
+  const matrix = [];
+  for (let i = 0; i < hyper; i++) {
+    matrix[i] = initialize3DMatrix(depth, rows, cols, initialValue);
+  }
+
+  return matrix;
+}
+
 module.exports = {
   loadInput,
   loadInputString,
@@ -65,4 +74,5 @@ module.exports = {
   print3DMatrix,
   initialize2DMatrix,
   initialize3DMatrix,
+  initialize4DMatrix,
 };
