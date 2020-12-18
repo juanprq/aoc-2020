@@ -34,7 +34,7 @@ const print3DMatrix = (matrix, offset = 0) => {
 };
 
 const initialize2DMatrix = (rows, cols, initialValue = 0) => {
-  const matrix;
+  const matrix = [];
 
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
