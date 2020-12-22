@@ -38,9 +38,13 @@ const generateRegexp = (rule = '0') => {
   } else if (rule === '11') {
     const regexp42 = generateRegexp('42');
     const regexp31 = generateRegexp('31');
-    const regexp = `(${regexp42})+(${regexp31})+`;
 
-    return regexp;
+    const regexps = [];
+    for (let i = 1; i <= 10; i++) {
+      regexps.push(`((${regexp42}){${i}}(${regexp31}){${i}})`);
+    }
+
+    return `(${regexps.join('|')})`;
   } else {
     const regex = currentRule
       .map(subRule => subRule
@@ -52,7 +56,8 @@ const generateRegexp = (rule = '0') => {
 };
 
 const regexp = new RegExp(`^${generateRegexp()}$`);
+
 const result = input
-  .filter(v => regexp.test(v));
+  .filter(v => regexp.test(v))
 
 console.log('result =>', result.length);
