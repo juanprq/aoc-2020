@@ -67,6 +67,32 @@ const initialize4DMatrix = (hyper, depth, rows, cols, initialValue = 0) => {
   return matrix;
 }
 
+const rotateLeft = (matrix) => {
+  const rows = matrix.length;
+  const cols = matrix[0].length;
+
+  // interchange rows and cols
+  const newMatrix = initialize2DMatrix(cols, rows);
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      newMatrix[i][j] = matrix[j][cols - i - 1];
+    }
+  }
+
+  return newMatrix;
+}
+
+const rotateNLeft = (matrix, n) => {
+  let result = matrix;
+
+  for (i = 0; i < n; i++) {
+    result = rotateLeft(result);
+  }
+
+  return result;
+}
+
 module.exports = {
   loadInput,
   loadInputString,
@@ -75,4 +101,6 @@ module.exports = {
   initialize2DMatrix,
   initialize3DMatrix,
   initialize4DMatrix,
+  rotateLeft,
+  rotateNLeft,
 };
